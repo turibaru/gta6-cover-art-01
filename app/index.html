@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vice Cover Lab — GTA-style cover art maker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark">VC</span>
+    <div>
+      <h1>Vice Cover Lab</h1>
+      <p>Turn your photos into a multi-panel GTA-style poster. 100% offline — photos never leave your machine.</p>
+    </div>
+  </div>
+  <div class="top-note">No upload &middot; No account &middot; Export PNG</div>
+</header>
+
+<main class="shell">
+  <section class="stage-wrap" id="stageWrap" aria-label="Cover preview">
+    <div class="stage-head">
+      <span>Live preview</span>
+      <span id="sizeLabel">1080 &times; 1080</span>
+    </div>
+    <div class="stage" id="stage">
+      <canvas id="coverCanvas" width="720" height="720"></canvas>
+      <div class="drop-hint" id="dropHint">Drop a photo here, or use the photo slots &rarr;</div>
+    </div>
+    <p class="stage-foot">Tip: click a photo slot to make it active, then drop a photo onto the preview. Drag the sliders to crop and position each photo.</p>
+  </section>
+
+  <aside class="panel" aria-label="Editor controls">
+    <section class="group" id="photosGroup">
+      <h2>1 &middot; Your photos</h2>
+      <p class="hint">Three slots. Each panel of the cover draws from one slot.</p>
+      <div class="slots" id="slots"></div>
+      <div class="row">
+        <button type="button" class="btn ghost" id="loadSamples">Load sample photos</button>
+        <button type="button" class="btn ghost" id="clearPhotos">Clear all</button>
+      </div>
+    </section>
+
+    <section class="group">
+      <h2>2 &middot; Layout</h2>
+      <div class="choices" id="layoutChoices" role="group" aria-label="Layout"></div>
+    </section>
+
+    <section class="group">
+      <h2>3 &middot; Palette</h2>
+      <div class="choices swatches" id="paletteChoices" role="group" aria-label="Palette"></div>
+      <div class="row">
+        <button type="button" class="btn ghost" id="randomPalette">Surprise me (random palette)</button>
+      </div>
+    </section>
+
+    <section class="group">
+      <h2>4 &middot; Words</h2>
+      <label class="field">Title
+        <input type="text" id="inTitle" value="VICE CITY" maxlength="24" autocomplete="off">
+      </label>
+      <label class="field">Subtitle banner
+        <input type="text" id="inSubtitle" value="SUNSET HEIST" maxlength="32" autocomplete="off">
+      </label>
+      <label class="field">Tagline
+        <input type="text" id="inTagline" value="One last score under the neon sun." maxlength="64" autocomplete="off">
+      </label>
+      <label class="field">Badge
+        <input type="text" id="inBadge" value="EST. 2026" maxlength="16" autocomplete="off">
+      </label>
+      <div class="row two">
+        <label class="field">Title position
+          <select id="inTitlePos">
+            <option value="bottom" selected>Bottom</option>
+            <option value="top">Top</option>
+          </select>
+        </label>
+        <label class="field">Title size
+          <input type="range" id="inTitleSize" min="60" max="140" value="100">
+          <span class="val" id="titleSizeVal">100%</span>
+        </label>
+      </div>
+    </section>
+
+    <section class="group">
+      <h2>5 &middot; Effects</h2>
+      <label class="check"><input type="checkbox" id="fxSun" checked> Retro sun</label>
+      <label class="check"><input type="checkbox" id="fxPalms" checked> Palm silhouettes</label>
+      <label class="check"><input type="checkbox" id="fxGrain" checked> Film grain</label>
+      <label class="check"><input type="checkbox" id="fxVignette" checked> Vignette + frame</label>
+    </section>
+
+    <section class="group export">
+      <h2>6 &middot; Export PNG</h2>
+      <label class="field">Size
+        <select id="inSize">
+          <option value="1080x1080" selected>1080 &times; 1080 — square post</option>
+          <option value="1080x1350">1080 &times; 1350 — portrait post</option>
+          <option value="1920x1080">1920 &times; 1080 — landscape / banner</option>
+          <option value="1080x1920">1080 &times; 1920 — story</option>
+        </select>
+      </label>
+      <div class="row">
+        <button type="button" class="btn primary" id="exportOne">Export this size</button>
+        <button type="button" class="btn" id="exportAll">Export all 4 sizes</button>
+      </div>
+      <p class="status" id="exportStatus" role="status">Ready. Pick a size and export.</p>
+    </section>
+  </aside>
+</main>
+
+<footer class="foot">
+  <p>All art is drawn fresh on canvas — sun, palms, gradients and lettering are original shapes. No Rockstar logo, artwork or font is used. Sample photos ship with the app and are free to use.</p>
+</footer>
+
+<script src="src/cover.js"></script>
+<script src="src/main.js"></script>
+<script src="src/shots.js"></script>
+</body>
+</html>
