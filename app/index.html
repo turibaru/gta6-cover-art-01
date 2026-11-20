@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Palm Shores — Vice-Style Cover Maker</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header class="topbar">
+  <div>
+    <h1>Palm Shores <span>Cover Maker</span></h1>
+    <p class="tag">Your photo + a caption → a Vice-style multi-panel poster. Offline. Your photos never leave this machine.</p>
+  </div>
+  <p class="privacy">🔒 100% offline — no uploads, no network, no fonts fetched.</p>
+</header>
+<main class="app">
+  <section class="controls" aria-label="Cover controls">
+    <div class="group">
+      <h2>1 · Photos</h2>
+      <p class="hint">Up to three photos — one per panel. Upload, drag &amp; drop onto the preview, or use a sample.</p>
+      <div id="slots"></div>
+    </div>
+    <div class="group">
+      <h2>2 · Layout &amp; colour</h2>
+      <label>Layout <select id="layout"></select></label>
+      <label>Palette <select id="palette"></select></label>
+      <button id="randomize" type="button">🎲 Surprise me — random layout + palette</button>
+    </div>
+    <div class="group">
+      <h2>3 · Words</h2>
+      <label>Title <input id="title" type="text" maxlength="30" value="SUNSET HEIST"></label>
+      <label>Subtitle banner <input id="subtitle" type="text" maxlength="24" value="PALM SHORES"></label>
+      <label>Tagline <input id="tagline" type="text" maxlength="60" value="One last score under the neon sun"></label>
+      <label>Badge <input id="badge" type="text" maxlength="14" value="EST. 2026"></label>
+      <label>Title position
+        <select id="titlePos">
+          <option value="bottom" selected>Bottom</option>
+          <option value="top">Top</option>
+        </select>
+      </label>
+      <label>Title size <span id="titleSizeVal">100%</span>
+        <input id="titleSize" type="range" min="60" max="140" step="5" value="100">
+      </label>
+      <div class="checks">
+        <label><input id="showSun" type="checkbox" checked> Retro sun</label>
+        <label><input id="showPalms" type="checkbox" checked> Palm silhouettes</label>
+        <label><input id="showGrain" type="checkbox" checked> Film grain</label>
+        <label><input id="outline" type="checkbox" checked> 3D title extrusion</label>
+      </div>
+    </div>
+    <div class="group">
+      <h2>4 · Export PNG</h2>
+      <label>Post size <select id="size"></select></label>
+      <button id="export" type="button" class="primary">⬇ Export PNG</button>
+      <button id="exportAll" type="button">Export all 4 sizes</button>
+      <p id="status" role="status">Tip: drop a photo straight onto the cover.</p>
+    </div>
+  </section>
+  <section class="preview" aria-label="Cover preview">
+    <canvas id="cover" width="1080" height="1080" aria-label="The cover poster"></canvas>
+  </section>
+</main>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>

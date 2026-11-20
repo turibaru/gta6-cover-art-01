@@ -1,0 +1,6 @@
+[
+  { "name": "1-cover.jpg", "query": "?shot=cover&photo=pier&photo2=boulevard&caption=Sunset%20Heist", "w": 1080, "h": 1080 },
+  { "name": "2-editor.jpg", "query": "?shot=editor&photo=boulevard&photo2=pier&caption=Boulevard%20Queen", "w": 1280, "h": 720 },
+  { "name": "3-cover.jpg", "query": "?shot=cover-duo&photo=pier&photo2=boulevard&caption=Neon%20Run", "w": 1080, "h": 1080 },
+  { "name": "4-cover.jpg", "query": "?shot=cover-grid&photo=boulevard&photo2=pier&caption=Palm%20Shores", "w": 1080, "h": 1080 }
+]
